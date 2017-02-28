@@ -10,22 +10,38 @@ import java.util.Scanner;
 /**
  *
  * @author Jonathan
+ * @version 1.1.2
+ * 
  */
 public class ProyectoOrdenamientoBurbuja {
 
-  
     public int tamaño;
-    byte datos;
-    byte [][]vector;
+    public int datos,aux;
+    public int vector[];
+    
     public ProyectoOrdenamientoBurbuja(){
-        
         Scanner entradaTeclado = new Scanner(System.in);
         System.out.println("Por favor ingrese el tamaño del vector: ");
         tamaño= entradaTeclado.nextInt();
-        datos= (byte) vector.length;
-        System.out.println("tamaño: "+datos);
-        System.out.println("Por favor ingrese los datos del vector: ");
-        
+        vector=new int[tamaño];
+        for(int i=0;i<vector.length;i++){   
+            System.out.println("Por favor ingrese el dato "+ (i+1) +" del vector");
+            datos=entradaTeclado.nextInt();
+            vector[i]=datos;
+        }
+        for(int i=0;i<vector.length;i++){
+            for(int j=0;j<vector.length;j++){
+                if(vector[j+1]<vector[i]){
+                    aux=vector[i+1];
+                    vector[i+1]=vector[i];
+                    vector[i]=aux;
+                }
+            }
+        }     
+        System.out.println("Vector ordenado: \n");
+        for(int i=0;i<vector.length;i++){
+            System.out.println("\n"+vector[i]);
+        }
     }
       /**
      * @param args the command line arguments
