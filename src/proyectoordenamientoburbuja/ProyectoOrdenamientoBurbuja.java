@@ -30,17 +30,17 @@ public class ProyectoOrdenamientoBurbuja {
             vector[i]=datos;
         }
         for(int i=0;i<vector.length;i++){
-            for(int j=0;j<vector.length;j++){
-                if(vector[j+1]<vector[i]){
-                    aux=vector[i+1];
-                    vector[i+1]=vector[i];
-                    vector[i]=aux;
+            for(int j=0;j<vector.length-1;j++){
+                if(vector[j+1]<vector[j]){
+                    aux=vector[j+1];
+                    vector[j+1]=vector[j];
+                    vector[j]=aux;
                 }
             }
         }     
         System.out.println("Vector ordenado: \n");
         for(int i=0;i<vector.length;i++){
-            System.out.println("\n"+vector[i]);
+            System.out.print("  "+vector[i]);
         }
     }
       /**
